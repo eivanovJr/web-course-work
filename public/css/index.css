@@ -1,0 +1,125 @@
+@font-face {
+    font-family: "Lobster";
+    src: url("../fonts/Lobster-Regular.ttf");
+}
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    position: fixed;
+    min-height: 50px;
+    width: 100%;
+    display: flex;
+    text-align: center;
+    box-shadow: 0 0 10px #999;
+    background: #eeeb;
+    z-index: 99;
+}
+header nav {
+    width: 50%;
+    margin: 0 auto 0;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+
+.selected {
+    color: #700;
+}
+
+#comments p {
+    color: #700;
+}
+
+#comments ins {
+    background: yellow;
+}
+
+.shadow {
+    filter: drop-shadow(5px 5px 10px #000);
+}
+
+header a {
+    text-decoration: none;
+    color: #555;
+    margin: auto 20px auto;
+    font-family: Lobster, sans-serif;
+    font-size: 2.5vh;
+}
+
+header .login {
+    height: auto;
+    float: right;
+}
+
+header a:hover, footer a:hover, .person-info a:hover {
+    color: #999;
+}
+
+@media screen and (max-width: 870px) {
+    header nav {
+        flex-direction: column;
+    }
+
+    #info {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+footer {
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    border-top: 1px black solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer a {
+    margin: auto;
+    text-decoration: none;
+    color: #555555;
+}
+
+main {
+    margin: 50px auto 0;
+    min-height: calc(100vh - 100px);
+}
+
+#info {
+    margin: 20% 10px 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.person-info {
+    display: flex;
+    flex-direction: column;
+}
+.person-info h1, .person-info h3, .person-info h4 {
+    margin: 0;
+}
+.person-info h4 {
+    color: #aaa;
+}
+.person-info a {
+    color: #aaa;
+    text-decoration: none;
+}
+
+
+
+#comments {
+    line-height: 0.5;
+}
+#comments p {
+    letter-spacing: 5px;
+}

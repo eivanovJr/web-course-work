@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Иванов Евгений</title>
+    <link rel="stylesheet" href="/css/users.css">
+    <%- include('partials/shared-styles')%>
+</head>
+<body>
+<%- include('partials/header')%>
+<main>
+    <table id="users">
+        <thead>
+        <tr>
+            <th>Имя</th>
+            <th>Никнейм</th>
+            <th>email</th>
+            <th>телефон</th>
+        </tr>
+        </thead>
+        <tbody id="users-insert">
+        <template id="templateUser">
+            <tr>
+                <td>name</td>
+                <td>nickname</td>
+                <td>email</td>
+                <td>phone</td>
+            </tr>
+        </template>
+        <template id="templateRow">
+            <tr>
+                <td colspan="4">temp</td>
+            </tr>
+        </template>
+        <tr>
+            <td colspan="4"><button onclick="generate()">сгенерировать</button></td>
+        </tr>
+        </tbody>
+    </table>
+    <script src="/js/users.js"></script>
+</main>
+</body>
+<%- include('partials/footer')%>
+</html>

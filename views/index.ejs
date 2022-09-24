@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Иванов Евгений</title>
+    <%- include('partials/shared-styles')%>
+</head>
+<body>
+    <%- include('partials/header')%>
+    <main>
+        <section id="info">
+            <div class="person-info">
+            <h1>Иванов Евгений</h1>
+            <h3><em>java-разработчик</em></h3>
+            <ul>
+                <li><h4><strong><a href="https://t.me/eivanov" target="_blank">telegram: @eivanov</a></strong></h4></li>
+                <li><h4><strong><a href="https://vk.com/eivnv" target="_blank">vk: @eivnv</a></strong></h4></li>
+                <li><h4><i><a href="https://github.com/eivanovJr" target="_blank">github: @eivanovJr</a></i></h4></li>
+                <li><h4><del>одноклассники</del></h4></li>
+            </ul>
+            </div>
+            <img src="/pic/my_photo.jpg" alt="моё фото" class="shadow">
+        </section>
+        <section id="comments">
+            <h3>Комментарии <ins>моих друзей:</ins></h3>
+            <ol>
+                <li><h4>
+                    <blockquote>
+                        <p>Ну пойдёт</p>
+                        <cite>Прядкин Александр</cite>
+                    </blockquote>
+                </h4></li>
+                <li><h4>
+                    <blockquote>
+                        <p>Положительно</p>
+                        <cite>Ежов Игорь</cite>
+                    </blockquote>
+                </h4></li>
+            </ol>
+        </section>
+        <section id="code">
+            <h3><b>Мой код</b>:</h3>
+            <pre><code>
+from collections import Counter
+
+class Node(object):
+  def init(self, depth):
+    self.right = None
+    self.left = None
+    self.classification = None
+    self.predicate = 0.0
+    self.column = None
+    self.leaf = False
+    self.depth = depth
+
+
+def IG(Rv, Rl, Rr):
+  return entropy(Rv) - (len(Rl) / len(Rv) * entropy(Rl) + len(Rr) / len(Rv) * entropy(Rr))
+
+class DecisionTree(object):
+  def init(self, max_depth, min_leaf_samples):
+    self.root = Node(1)
+    self.max_depth = max_depth
+    self.min_leaf_samples = min_leaf_samples
+
+
+  def splitNode(self, X, Y, node):
+      if node.depth == self.max_depth or len(X) < self.min_leaf_samples * 2 or len(np.unique(Y)) == 1:
+        temp = Counter(Y)
+        node.classification = temp.most_common(1)[0][0]
+        node.leaf = True
+        return
+      max_ig = -1
+      best_t, best_column, best_left, best_right = None, None, None, None
+      for col_index in range(X.shape[1]):
+          column = X[:, col_index]
+          for t in column:
+            partition_left, partition_right = Y[column < t], Y[column >= t]
+            if len(partition_left) < self.min_leaf_samples or len(partition_right) < self.min_leaf_samples:
+              continue
+            current_ig = IG(Y, partition_left, partition_right)
+            if current_ig > max_ig:
+              max_ig, best_t, best_column, best_left, best_right = current_ig, t, col_index, partition_left, partition_right
+              x_left, x_right = X[column < best_t, :], X[column >= best_t, :]
+      node.left = Node(node.depth + 1)
+      node.right = Node(node.depth + 1)
+      node.predicate = best_t
+      node.column = best_column
+      self.splitNode(x_left, best_left, node.left)
+      self.splitNode(x_right, best_right, node.right)
+
+
+  def fit(self, X, Y):
+    self.splitNode(X, Y, self.root)
+
+  def predict_element(self, x, node):
+    if node.leaf == True:
+      return node.classification
+    if x[node.column] < node.predicate:
+      return self.predict_element(x, node.left)
+    else:
+      return self.predict_element(x, node.right)
+
+  def predict(self, X):
+    return [self.predict_element(x, self.root) for x in np.asarray(X)]
+            </code></pre>
+        </section>
+        <section id="falloutGuy">
+            <pre>                                    ..%##+..
+                                  ..@@:***%#*-...
+                    ...:   ..=######+::::*****=@#+.
+                   .+##- ..=@::::::::::::********=%.
+                  .@=-@###%:::::::::::::::*********#%..
+                  .#:::::::::=#@+::*@####%***********@%.
+                  .=+-:::::%=....---...--=#+::+@##%***=#-
+                  .##=-::=@-...........-----------=#+**%#-.
+                  +@--%%-...............----------:#=***#=.
+                  -#-@*........:.........-------:@#*****#@.
+                  .-#+........-@.........-------::@+****#%.
+                  .@%.*+##%++++@@++++###++-------*#:@**+#*..
+                  *#-...##-...%=.....%#*.--------%%++=*##.
+                 .@%........:#=.........:@:-----*#:%+%##:
+                 .#=.......%#+............------++*++##+.
+                 .#=........=#+..........--------:--+#@..
+                 .#%...-:*****::::--.....------------=#+
+                  %@.*#*...:**::-.--:=#+.------------%#:
+                 .#=:*.................++.---------*##:.
+                  .##+..................-------:##+:..
+                   .%#+................-------%#=.
+                    .*##-.............------%##@*..
+                ......-@#@-.........-----+#@@%---:@#%-..
+            ..-@#%++*****#%#%:....---------%%-----#%==%#%-.
+           .@@+*********+@---+###@@%+---+##:-----@#=======##:.
+        .:#+*************#:----*@######%:------:#@==========%#@-.
+      .*#+***************+#:-----------------:##===============@#*..
+    .-#+*******************#*-------------*@#@===================%#+..
+  ..@=*********+#=********+#---------=###@=========================%#*.
+ .+#***********%#%********%=--------=@===============================%#-.
+.=@**********+==#=********#*--------#%=================================@%.
++@**********====#=*******+#--------:#====================================#:.
+#+********+===%%#=*******=@--------+#============%#@======================#=.
+%%*******+======#=*******%=--------%@=============%%%@##%=================%@@
+.%@******=======#%*******@+--------@%============%%%%%%##+@##%===========%%%#
+ .-#+****=======#@*******#*--------#%============%%%%%@#=  ..@@========%%%%#*
+  ..+@****======#@*******#:--------#============%%%%%%##-  .#%========%%%%@%.
+    ..@%***=====#@*******#:--------#============%%%%%%#%. -#========%%%%%@#.
+      .-@%**+===##*******#:--------#===========%%%%%%##:.-#=======%%%%%%@#..
+         .@%**==###=*****#*--------#===========%%%%%%##.-#=====%%%%%%%%@#-.
+          ..@#+=##=-=#%+*@+--------#%==========%%%%%%#@-#%===%%%%%%%%%@#.
+            .:#+-+@----*%%:--------@@=========%@###@=#@@#%%%%%%%%%%%%##.
+           .#**+-:#----------------:%#####@=+*::::::*#####@%%%%%%%%%#@.
+           +%-*+-:#*-------------------------::::::::##*--@##%%%%%%#=..
+           .#+---:#%-------------------------::::::::#%-----:=%###@..
+            ..:=#####@*----------------------:::::::=##-------+#*:#=.
+                  :#+**+@##=*:-------------:+=@####@@##:-----:#---+#*.
+                  .#%****+====%@@@#####@@%%%%%%%%%%%%%#@------:@#-=#.
+                  .#@****+==================%%%%%%%%%%%##%=+*****%#..
+                  .%#****+==================%%%%%%%%%%%@##..   ...
+                   +#+***+==================%%%%%%%%%%%%@#@.
+                   ...:**+==================%%%%%%%%%%%%+-.
+                      .....:*===============%%%%%%+:.....
+</pre>
+        </section>
+    </main>
+    <%- include('partials/footer')%>
+</body>
+</html>

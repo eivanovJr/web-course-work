@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Иванов Евгений</title>
+    <%- include('partials/shared-styles')%>
+    <link rel="stylesheet" href="/css/todo.css">
+    <link rel="stylesheet" href="/css/project.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/> <!-- подключение библиотеки -->
+</head>
+
+<%- include('partials/header')%>
+<body>
+<main>
+    <section>
+        <h1>На данной странице продемонстрированы примеры других моих проектов</h1>
+        <h3>Проект системы онлайн курсов</h3>
+    </section>
+    <div class="swiper mySwiper"> <!-- инициализация класса swiper -->
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"> <!-- добавление картинок в экземпляр swiper'a -->
+                <img src="/pic/project1.png" alt="project image"/>
+            </div>
+            <div class="swiper-slide">
+                <img src="/pic/project2.png" alt="project image"/>
+            </div>
+            <div class="swiper-slide">
+                <img src="/pic/project3.png" alt="project image"/>
+            </div>
+            <div class="swiper-slide">
+                <img src="/pic/project4.png" alt="project image"/>
+            </div>
+            <div class="swiper-slide">
+                <img src="/pic/project5.png" alt="project image"/>
+            </div>
+            <div class="swiper-slide">
+                <img src="/pic/project6.png" alt="project image"/>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div> <!-- добавление навигации свайпера, в виде bullet-->
+    </div>
+    <section>
+        <h3>Диаграммы проектирования приложения</h3>
+    </section>
+
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="/pic/uml1.jpg" alt="diagram image"/>
+            </div>
+            <div class="swiper-slide">
+                <img src="/pic/uml2.jpg" alt="diagram image"/>
+            </div>
+            <div class="swiper-slide">
+                <img src="/pic/uml3.jpg" alt="diagram image"/>
+            </div>
+            <div class="swiper-slide">
+                <img src="/pic/uml4.jpg" alt="diagram image"/>
+            </div>
+            <div class="swiper-slide">
+                <img src="/pic/uml5.jpg" alt="diagram image"/>
+            </div>
+            <div class="swiper-slide">
+                <img src="/pic/uml6.jpg" alt="diagram image"/>
+            </div>
+            <div class="swiper-slide">
+                <img src="/pic/uml7.jpg" alt="diagram image"/>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="/js/swiper.js"></script>
+</main>
+<%- include('partials/footer')%>
+</body>
+</html>

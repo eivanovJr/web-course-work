@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Иванов Евгений</title>
+    <%- include('partials/shared-styles')%>
+    <link rel="stylesheet" href="/css/todo.css">
+
+</head>
+<body>
+<%- include('partials/header')%>
+<main>
+    <table class="beautiful-table">
+        <thead>
+            <tr>
+                <th>Таска</th>
+                <th>Описание</th>
+                <th>действие</th>
+            </tr>
+        </thead>
+        <tbody id="insertForm">
+            <tr>
+                <td><input placeholder="Название задачи" required id="insertName"></td>
+                <td><input placeholder="Описание задачи" required id="insertDescription"></td>
+                <td><input type="button" value="Добавить" required id="insertButton"></td>
+            </tr>
+        </tbody>
+    </table>
+    <template id="InsertRow">
+        <tr>
+            <td></td>
+            <td></td>
+            <td><button>Удалить</button></td>
+        </tr>
+    </template>
+    <script src="/js/table.js"></script>
+</main>
+    <%- include('partials/footer')%>
+</body>
+</html>

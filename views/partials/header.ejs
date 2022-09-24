@@ -1,0 +1,13 @@
+<header>
+  <nav>
+    <a href="/" class="nav-element">Главная</a>
+    <a href="/todo" class="nav-element">TODO-List</a>
+    <a href="/users" class="nav-element">Users</a>
+    <a href="/project" class="nav-element">Projects</a>
+  </nav>
+  <%if(locals.user && user !== '') {%>
+    <p class="login" >Logged in as <%=user%></p>
+  <%}else {%>
+    <a href="/authorized" class="login">Войти</a>
+  <%}%>
+</header>

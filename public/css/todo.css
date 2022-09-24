@@ -1,0 +1,62 @@
+main {
+    width: 100%;
+}
+
+.beautiful-table {
+    width: 60%;
+    margin: auto;
+    border-collapse: collapse;
+}
+
+.beautiful-table td {
+    border: 1px black solid;
+    text-align: center;
+}
+
+.beautiful-table tr:nth-child(2n) {
+    background: #eee;
+}
+
+.beautiful-table tr:hover {
+    background: #ccc;
+}
+
+.beautiful-table th {
+    border: 1px black solid;
+    background: #ddd;
+}
+
+.beautiful-table td input {
+    width: 95%;
+    border: 0;
+    height: 3vh;
+    outline:none;
+    background: transparent;
+}
+
+.beautiful-table button {
+    width: 60%;
+    height: 3vh;
+    border: 1px solid;
+    border-radius: 5px;
+    background-color: red;
+    color: white;
+}
+
+#insertForm #insertButton {
+    width: 60%;
+    background-color: green;
+    color: white;
+    border: 1px solid;
+    border-radius: 5px;
+}
+
+@media screen and (max-width: 870px) {
+    main {
+        margin-top: 100px;
+        min-height: calc(100vh - 150px);
+    }
+    .beautiful-table {
+        width: 100%;
+    }
+}
